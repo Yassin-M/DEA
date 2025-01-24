@@ -98,7 +98,7 @@ public class ArbolTareas {
 	public static void main(String[] args) {
 		ArbolTareas a = new ArbolTareas();
 		
-		System.out.println("El coste de T7 deberia ser 72 y es: " + a.coste("T7"));
+		System.out.println("El coste de T7 deberia ser 71+1 y es: " + a.coste("T7"));
 		System.out.println("El coste de T31 deberia ser 3 y es: " + a.coste("T31"));
 		System.out.println("El coste de T12 deberia ser 23 y es: " + a.coste("T12"));
 		System.out.println("El coste de T1 deberia ser 44 y es: " + a.coste("T1"));
