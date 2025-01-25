@@ -1,9 +1,14 @@
 package org.azterketak.PertsonenZerrenda;
 
 public class DoubleLinkedList{
+	// Bi norabideko esteka, zerrenda ez zirkularra
 	DoubleNode first;
 
 	public void zerrendaLortu(PertsonenZerrenda l){
+		// Aurre:
+		// Post: l-ko balioekin zerrenda sortu da.
+		// Zerrenda estekadura bikoitzekoa da, ez zirkularra
+		// Pertsona bakoitzak bere erosketen zerrenda zirkularra izango du
 		String[] pertsonakA = l.pertsonak;
 		String[][] erosketakA = l.erosketak;
 
