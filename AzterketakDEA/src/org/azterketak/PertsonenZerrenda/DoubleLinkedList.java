@@ -8,7 +8,7 @@ public class DoubleLinkedList{
 		// Aurre:
 		// Post: l-ko balioekin zerrenda sortu da.
 		// Zerrenda estekadura bikoitzekoa da, ez zirkularra
-		// Pertsona bakoitzak bere erosketen zerrenda zirkularra izango du
+		// Pertsona bakoitzak bere erosketen zerrenda zirkularra izango du.
 		String[] pertsonakA = l.pertsonak;
 		String[][] erosketakA = l.erosketak;
 
