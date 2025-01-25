@@ -14,7 +14,7 @@ public class DoubleNode{
 		Node lag = erosketak;
 		for(int i=1; i<erosketak1.length;i++){
 			Node berria = new Node();
-			berria.data = erosketak1[1];
+			berria.data = erosketak1[i];
 			lag.next = berria;
 			lag = lag.next;
 		}
