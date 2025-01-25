@@ -1,4 +1,4 @@
-package org.azterketak.PertsonenZerrenda
+package org.azterketak.PertsonenZerrenda;
 
 public class DoubleNode{
 	String data;

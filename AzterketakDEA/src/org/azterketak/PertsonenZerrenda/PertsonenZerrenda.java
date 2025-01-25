@@ -1,4 +1,4 @@
-package org.azterketak.PertsonenZerrenda
+package org.azterketak.PertsonenZerrenda;
 
 public class PertsonenZerrenda{
 	String[] pertsonak;
