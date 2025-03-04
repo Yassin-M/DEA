@@ -1,1 +1,1 @@
-Datu-egiturak eta Algoritmoak irakasgaiaren azterketak (eta praktikak?)
+Datu-egiturak eta Algoritmoak irakasgaiaren azterketak
