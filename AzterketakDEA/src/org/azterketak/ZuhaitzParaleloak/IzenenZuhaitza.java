@@ -1,14 +1,14 @@
 package org.azterketak.ZuhaitzParaleloak;
 
 public class IzenenZuhaitza {
-	Nodo rootAbizenak;
-	Nodo rootIzenak;
+	Node rootAbizenak;
+	Node rootIzenak;
 	
 	public String lortuIzena(String abizena) {
 		return lortuIzena(rootIzenak, rootAbizenak, abizena);
 	}
 	
-	private String lortuIzena(Nodo izen, Nodo abizen, String comp) {
+	private String lortuIzena(Node izen, Node abizen, String comp) {
 		if(abizen==null) {
 			return null;
 		}else if(abizen.balioa.equals(comp)) {

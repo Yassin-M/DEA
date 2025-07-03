@@ -1,6 +1,6 @@
 package org.azterketak.ZuhaitzParaleloak;
 
-public class Nodo {
+public class Node {
 	public String balioa;
-	public Nodo left, right;
+	public Node left, right;
 }
