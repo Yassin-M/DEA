@@ -8,16 +8,21 @@ public class Pertsona {
 	ArrayList<Pertsona> kontaktuak;
 	
 	public void epidemiarenSimulazioa() {
-		HashSet<Pertsona> aztertuak = new HashSet<Pertsona>();
+		HashSet<Pertsona> ikusitakoak = new HashSet<Pertsona>();
 		Queue<Pertsona> aztGabeak = (Queue<Pertsona>) new LinkedList();
-		Pertsona hasiera = kontaktuak.get(0);
-		aztertuak.add(hasiera);
-		aztGabeak.add(hasiera);
+		aztGabeak.add(kontaktuak.get(0));
+		ikusitakoak.add(kontaktuak.get(0));
 		while(!aztGabeak.isEmpty()) {
 			Pertsona unekoa = aztGabeak.remove();
-			for(Pertsona p: unekoa.kontaktuak) {
-				if(!aztertuak.contains(unekoa)) {
-					
+			if(unekoa.kutsatuta) {
+				for(Pertsona p: unekoa.kontaktuak) {
+					if(!ikusitakoak.contains(p)) {
+						if(unekoa.kutsatu()) {
+							p.kutsatuta = true;
+						}
+						aztGabeak.add(p);
+						ikusitakoak.add(p);
+					}
 				}
 			}
 		}

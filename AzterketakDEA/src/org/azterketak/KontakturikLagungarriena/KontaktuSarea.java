@@ -6,35 +6,34 @@ public class KontaktuSarea {
 	private boolean [][] adjMatrix;
 	
 	public int lagungarriena(ArrayList<Integer> pertsonak) {
-		int[] lagung = new int[adjMatrix.length];
-		for(Integer p: pertsonak) {
-			int hasiera = p;
+		int[] lagungarriak = new int[adjMatrix.length];
+		for(Integer i: pertsonak) {
 			Queue<Integer> aztGabeak = (Queue<Integer>) new LinkedList();
-			boolean[] aztertuak = new boolean[adjMatrix.length];
-			aztGabeak.add(p);
-			aztertuak[p] = true;
+			boolean[] ikusitakoak = new boolean[adjMatrix.length];
+			aztGabeak.add(i);
+			ikusitakoak[i] = true;
 			while(!aztGabeak.isEmpty()) {
-				Integer unekoa = aztGabeak.remove();
-				for(int i = 0; i<adjMatrix[unekoa].length;i++) {
-					if(adjMatrix[unekoa][i] && !aztertuak[i]) {
-						if(bateragarriakDira(hasiera, i)) {
-							lagung[i]++;
+				int unekoa = aztGabeak.remove();
+				for(int j = 0; j<adjMatrix[unekoa].length; j++) {
+					if(!ikusitakoak[j]) {
+						aztGabeak.add(j);
+						ikusitakoak[j] = true;
+						if(bateragarriakDira(i, j)) {
+							lagungarriak[j]++;
 						}
-						aztertuak[i] = true;
-						aztGabeak.add(i);
-						
 					}
 				}
 			}
-			
 		}
-		int maxp = 0;
-		int max = 0;
-		for(int j = 0; j<lagung.length;j++) {
-			if(lagung[j]>maxp) max = j;
+		int ind = -1;
+		int max = -1;
+		for(int k = 0; k<lagungarriak.length; k++) {
+			if(lagungarriak[k]>max) {
+				max = lagungarriak[k];
+				ind = k;
+			}
 		}
-		
-		return max;
+		return ind;
 	}
 	
 	private boolean bateragarriakDira(Integer p1, Integer p2) {

@@ -9,32 +9,30 @@ public class MemoriaGrafo {
 	boolean[][] adjMatrix;
 	
 	public ArrayList<String> zaborraLortu(ArrayList<String> erabiliak){
-		boolean[] aztertuak = new boolean[numVertices];
+		boolean[] ikusitakoak = new boolean[numVertices];
+		Queue<Integer> aztGabeak = (Queue<Integer>) new LinkedList<Integer>();
 		for(String s: erabiliak) {
 			int ind = indexOf(s);
-			Queue<Integer> aztGabeak = (Queue<Integer>) new LinkedList();
 			aztGabeak.add(ind);
-			aztertuak[ind] = true;
-			vertices[indexOf(s)].atzigarria = true;
+			ikusitakoak[ind] = true;
+			vertices[ind].atzigarria = true;
 			while(!aztGabeak.isEmpty()) {
-				int unekoa = aztGabeak.remove();
+				Integer unekoa = aztGabeak.remove();
 				for(int i = 0; i<adjMatrix[unekoa].length;i++) {
-					if(!aztertuak[i]) {
-						vertices[i].atzigarria=true;
+					if(adjMatrix[unekoa][i] && !ikusitakoak[i]) {
 						aztGabeak.add(i);
-						aztertuak[i] = true;
+						ikusitakoak[i] = true;
+						vertices[i].atzigarria = true;
 					}
 				}
-				
 			}
 		}
 		ArrayList<String> emaitza = new ArrayList<String>();
-		for(Objektua o: vertices) {
-			if(o.atzigarria) {
-				emaitza.add(o.izena);
-			}
+		for(int j = 0; j<vertices.length; j++) {
+			if(!vertices[j].atzigarria) emaitza.add(vertices[j].izena);
 		}
 		return emaitza;
+		
 	}
 	
 	private int indexOf(String elem) {

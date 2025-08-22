@@ -13,17 +13,18 @@ public class Pertsona {
 		// Une bakoitzean, spam hori jasotzen duen pertsonak
 		// erabakiko du ea berriro bidaltzen duen ala ez
 		// spam kontagailua eguneratu da
-		Queue<Pertsona> aztertuGabe = new LinkedList<Pertsona>();
-		HashSet<String> aztertuak = new HashSet<String>();
-		Pertsona hasiera = kontaktuak.get(0);
-		aztertuGabe.add(hasiera);
-		while(!aztertuGabe.isEmpty()) {
-			Pertsona unekoa = aztertuGabe.remove();
+		HashSet<Pertsona> ikusitakoak = new HashSet<Pertsona>();
+		Queue<Pertsona> aztGabeak = (Queue<Pertsona>) new LinkedList();
+		ikusitakoak.add(kontaktuak.get(0));
+		aztGabeak.add(kontaktuak.get(0));
+		while(!aztGabeak.isEmpty()) {
+			Pertsona unekoa = aztGabeak.remove();
 			if(berBidali()) {
 				for(Pertsona p: unekoa.kontaktuak) {
 					p.spamJasotakoak++;
-					if(!aztertuak.contains(p)) {
-						aztertuGabe.add(p);
+					if(!ikusitakoak.contains(p)) {
+						aztGabeak.add(p);
+						ikusitakoak.add(p);
 					}
 				}
 			}

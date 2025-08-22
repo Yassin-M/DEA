@@ -25,25 +25,21 @@ public class RedDeOrdenadores {
 		 * the minimum distance from node 0 to i
 		 */
 		public int[] obtenerCostes() {
-
-
-			int[] costes = new int[adjMatrix[0].length];
-			boolean[] visitados = new boolean[adjMatrix[0].length];
-			Queue<Integer> porExaminar = new LinkedList<Integer>();
-			visitados[0] = true;
-			porExaminar.add(0);
-			while(!porExaminar.isEmpty()) {
-				Integer unekoa = porExaminar.remove();
-				for(int i = 0; i<adjMatrix[unekoa].length;i++) {
-					if(adjMatrix[unekoa][i] && !visitados[i]) {
+			int[] costes = new int[adjMatrix.length];
+			boolean[] aztertuak = new boolean[adjMatrix.length];
+			Queue<Integer> aztGabeak = (Queue<Integer>) new LinkedList();
+			aztGabeak.add(0);
+			aztertuak[0] = true;
+			while(!aztGabeak.isEmpty()) {
+				int unekoa = aztGabeak.remove();
+				for(int i = 0; i<adjMatrix[unekoa].length; i++) {
+					if(adjMatrix[unekoa][i]&&!aztertuak[i]) {
+						aztGabeak.add(i);
 						costes[i] = costes[unekoa] + 1;
-						porExaminar.add(i);
-						visitados[i] = true;
+						aztertuak[i] = true;
 					}
 				}
 			}
-			// COMPLETAR
-
 			return costes;
 		}
 		
